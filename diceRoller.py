@@ -5,14 +5,14 @@ import random,time
 
 s1 = "- - - - -\n|       |\n|   O   |\n|       |\n- - - - -\n"
 s2 = "- - - - -\n| O     |\n|       |\n|     O |\n- - - - -\n"
-s3 = "- - - - -\n| O     |\n|   O   |\n|     O |\n- - - - -\n"
+s3 = "- - - - -\n| O     |\n|   O   |\n|     O |\n- - - - -\n" # All the dice states
 s4 = "- - - - -\n| O   O |\n|       |\n| O   O |\n- - - - -\n"
 s5 = "- - - - -\n| O   O |\n|   O   |\n| O   O |\n- - - - -\n"
 s6 = "- - - - -\n| O   O |\n| O   O |\n| O   O |\n- - - - -\n"
 
 def rollDice():
     print("Rolling.....")
-    roll = random.randint(1,6)
+    roll = random.randint(1,6) #Generate random number
     return roll
 
 
@@ -23,7 +23,7 @@ def show_dice(roll):
         print(s2)
     elif roll == 3:
         print(s3)
-    elif roll == 4:
+    elif roll == 4: #checking roll, printing correct state
         print(s4)
     elif roll == 5:
         print(s5)
@@ -31,7 +31,7 @@ def show_dice(roll):
         print(s6)
     else:
         print("Something is wrong with this code.")
-        print(roll)
+        print(roll) #Small debug tool
 
 def twoInRow():
     howManyRolls=int(input("How many times would you like to roll? > "))
@@ -40,6 +40,7 @@ def twoInRow():
         myRoll=rollDice()
         time.sleep(1)
         show_dice(myRoll)
+        #print(myRoll) #debug
         if prevRoll==myRoll:
             print("You win life. Grats.")
             break
@@ -52,13 +53,14 @@ def whenSix():
         myRoll=rollDice()
         time.sleep(1)
         show_dice(myRoll)
-        if myRoll=="6":
+        #print(myRoll) #debug
+        if myRoll==6:
             print("You win life. Grats")
             break
 
 whichGame=str(input("Would you like it to stop at 2 in a row (t), \nOr when you get a six (s)? > "))
 if whichGame=="t":
-    twoInRow()
+    twoInRow() #Main program. No real point having it in a function.
 elif whichGame=="s":
     whenSix()   
 
